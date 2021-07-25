@@ -3,6 +3,19 @@
 {% block title %}Edit card{% endblock %}
 
 {% block body %}
+    <form action="{% url 'flash_card:editcard' object.pk %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>{{ object.front_text }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            <input type="text" name="front_text" value="{{ object.front_text }}">
+            <input type="text" name="back_text" value="{{ object.back_text }}">
+            <input type="text" name="pub_date" value="{{ object.pub_date }}">
+            <input type="checkbox" name="private" value="{{ object.private }}">
+        </fieldset>
+        <input type="submit" value="edit">
+    </form>
+
     <ul>
         <li>front text --{{ object.front_text }}</li>
         <li>back text --{{ object.back_text }}</li>
