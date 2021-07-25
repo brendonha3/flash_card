@@ -1,0 +1,15 @@
+{% extends 'flash_card/index.html'%}
+
+{% block title %}Edit card{% endblock %}
+
+{% block body %}
+    <ul>
+        <li>front text --{{ object.front_text }}</li>
+        <li>back text --{{ object.back_text }}</li>
+        <li>pk -- {{ object.pk }}</li>
+        <li>pub date -- {{ object.pub_date }}</li>
+        <li>user -- {{ object.user }}</li>
+        <li>private -- {{ object.private }}</li>
+        <li>likes -- {{ object.likes }}</li>
+    </ul>
+{% endblock %}
